@@ -25,21 +25,21 @@
 
 
 	//mostrar mensaje copiado
-		function showSuccessToast() {
-    var x = document.getElementById("snackbar");
+		function showSuccessToast(codBanco) {
+    var x = document.getElementById("snackbar"+codBanco);
    
     x.className = "mensaje toast-success show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000); // Hide after 3 seconds
 	}
 
 	
-	function copiarAliasPortapapeles(myAlias) {
+	function copiarAliasPortapapeles(myAlias, banco) {
 		// *** CAMBIAR ***
 		//const alias = "15.guille.perez";
 		const alias = myAlias;
 		
 		navigator.clipboard.writeText(alias).then(() => {
-			showSuccessToast();
+			showSuccessToast(banco);
 		}).catch(err => {
 			console.error('Error al copiar: ', err);
 		});
@@ -316,15 +316,15 @@
 <ul>
   <li><b>Cuenta Mercado Pago</b></li>
   <li><u>Titular</u>: Jazmín Quiroga</li>
-  <li><u>Alias</u>: jaazquiroga.mp <img src="./img/icono-copiar.png" style="margin-left:10px; width:20px;height:20px;cursor:pointer;" title="Copiar alias" alt="copiar alias" onclick="copiarAliasPortapapeles('jaazquiroga.mp');"></li>
-  <li id="snackbar" class="mensaje toast-success">Copiado!!!</li>
+  <li><u>Alias</u>: jaazquiroga.mp <img src="./img/icono-copiar.png" style="margin-left:10px; width:20px;height:20px;cursor:pointer;" title="Copiar alias" alt="copiar alias" onclick="copiarAliasPortapapeles('jaazquiroga.mp','MP');"></li>
+  <li id="snackbarMP" class="mensaje toast-success">Copiado!!!</li>
  </ul>
 	  <br>
 <ul>
   <li><b>Cuenta Naranja X</b></li>
   <li><u>Titular</u>: Jazmín Quiroga</li>
-  <li><u>Alias</u>: jaazquirogaa.nx  <img src="./img/icono-copiar.png" style="margin-left:10px; width:20px;height:20px;cursor:pointer;" title="Copiar alias" alt="copiar alias" onclick="copiarAliasPortapapeles('jaazquirogaa.nx');"></li>
-  <li id="snackbar" class="mensaje toast-success">Copiado!!!</li>
+  <li><u>Alias</u>: jaazquirogaa.nx  <img src="./img/icono-copiar.png" style="margin-left:10px; width:20px;height:20px;cursor:pointer;" title="Copiar alias" alt="copiar alias" onclick="copiarAliasPortapapeles('jaazquirogaa.nx','NX');"></li>
+  <li id="snackbarNX" class="mensaje toast-success">Copiado!!!</li>
  </ul> 
         </div>
       </div>
